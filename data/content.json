@@ -1,0 +1,22 @@
+{
+  "site": {
+    "tagline": "Product Design Portfolio"
+  },
+  "hero": {
+    "taglineHighlight": "design",
+    "freelanceNote": "Available for freelance & full-time opportunities.",
+    "availableLabel": "Available for work",
+    "pills": ["Product Design", "UX Design", "Design Systems", "Mobile-first Experiences"],
+    "specialistStat": { "value": "UX + Product", "label": "Specialist" }
+  },
+  "interstitial": {
+    "availabilityLabel": "Availability",
+    "basedInLabel": "Based in",
+    "statLabels": ["Years\nexperience", "Projects\ncompleted", "Companies\nworked at"]
+  },
+  "footer": {
+    "eyebrow": "Open to collaborations",
+    "ctaLines": ["Designing intuitive", "digital products", "with clarity."],
+    "ctaAccent": "for people."
+  }
+}
