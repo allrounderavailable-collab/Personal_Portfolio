@@ -1,0 +1,100 @@
+{
+  "name": {
+    "first": "Gaurav",
+    "last": "Choudhary",
+    "full": "Gaurav Choudhary"
+  },
+  "email": "allrounderavailable@gmail.com",
+  "website": "https://gauravchoudhary.framer.ai",
+  "tagline": "Product Designer · UX Designer · 2+ Years Experience",
+  "description": "Results-driven Product and UX Designer with 2+ years of experience crafting end-to-end digital products across e-commerce, workforce management, and EdTech domains.",
+  "roles": {
+    "short": "Product Designer",
+    "detailed": "Product Designer · UX Designer · Design Systems"
+  },
+  "location": {
+    "based": "Bengaluru, India",
+    "availability": "Open to opportunities"
+  },
+  "available": true,
+  "bio": "Results-driven Product Designer and UX Designer with 2+ years of experience crafting end-to-end digital products across e-commerce, workforce management, and EdTech. Skilled in user research, wireframing, prototyping, information architecture, and developer handoff.",
+  "stats": [
+    { "value": "2+",  "label": "Years Experience" },
+    { "value": "3+", "label": "Key Projects" },
+    { "value": "1",   "label": "Company" }
+  ],
+  "skills": [
+    "Product Design",
+    "UX Research",
+    "Wireframing",
+    "Prototyping",
+    "Figma",
+    "Adobe XD",
+    "Framer",
+    "Webflow",
+    "Design Systems",
+    "Admin Dashboards",
+    "Information Architecture",
+    "User Flows",
+    "Motion Design",
+    "Branding",
+    "Usability Testing",
+    "Photoshop"
+  ],
+  "experience": [
+    {
+      "id": 1,
+      "role": "Associate UX Designer",
+      "company": "KIBA Labs",
+      "companyShort": "KIBA LABS",
+      "type": "Full-time",
+      "location": "Bengaluru, India",
+      "period": "Jan 2025",
+      "periodEnd": "Present",
+      "bullets": [
+        "Independently designed 3 full products end-to-end — an e-commerce platform, a geo-location attendance mobile app, and an EdTech learning app.",
+        "Designed complex admin systems including super admin order and transaction management dashboards for data-dense interfaces.",
+        "Conducted user research, created personas, and ran usability testing to validate and iterate on product designs.",
+        "Collaborated with PMs and developers delivering well-documented Figma handoffs following platform design guidelines."
+      ],
+      "desc": "Independently led full product design cycles at KIBA Labs, from research and wireframes to high-fidelity UI and developer handoff.",
+      "tech": ["Figma", "Adobe XD", "Framer", "Webflow"]
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "Aidiph",
+      "subtitle": "E-Commerce Platform",
+      "type": "Product Design · Solo",
+      "link": "https://gauravchoudhary.framer.ai",
+      "image": "/assets/project-artgenio.png",
+      "tech": ["Figma", "Design Systems", "Admin Dashboards"],
+      "desc": "Full end-to-end e-commerce UX/UI and Super Admin system, including multi-step checkout, order lifecycle views, and a scalable component library."
+    },
+    {
+      "id": 2,
+      "title": "Geo-Location Attendance App",
+      "subtitle": "Mobile App · iOS & Android",
+      "type": "Mobile App",
+      "link": "https://gauravchoudhary.framer.ai",
+      "image": "/assets/project-easyfolio.png",
+      "tech": ["Figma", "Framer", "Mobile UX"],
+      "desc": "GPS geo-fencing + biometric camera check-in mobile app with manager dashboard, permission flows, and secure selfie verification."
+    },
+    {
+      "id": 3,
+      "title": "Proctorly",
+      "subtitle": "EdTech Learning Mobile App",
+      "type": "Mobile App",
+      "link": "https://gauravchoudhary.framer.ai",
+      "image": "/assets/work-experience.webp",
+      "tech": ["Figma", "Prototyping", "Accessible UI"],
+      "desc": "Course discovery, purchase flow, and a distraction-free video player optimized for long-form learning sessions."
+    }
+  ],
+  "publications": [],
+  "socials": [
+    { "label": "LinkedIn", "href": "https://gauravchoudhary.framer.ai" }
+  ]
+}
