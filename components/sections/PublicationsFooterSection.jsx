@@ -287,7 +287,7 @@ export default function PublicationsFooterSection() {
         const xfade    = 0.5 - 0.5 * Math.cos(Math.PI * xfadeRaw)
 
         gsap.set(imageWrapRef.current, { width: w, x: centerX, opacity: 1 - xfade })
-        vidUni.uOpacity.value = xfade
+        if (vidUni) vidUni.uOpacity.value = xfade
 
         if (xfade > 0.04 && !videoPlaying) {
           videoPlaying = true
@@ -350,8 +350,8 @@ export default function PublicationsFooterSection() {
         {/* ── Floating image: starts left, moves to center ── */}
         <div ref={imageWrapRef} className={styles.imageWrap}>
           <Image
-            src="/assets/footer.png"
-            alt=""
+            src="/assets/gaurav.png"
+            alt="Gaurav Choudhary"
             fill
             quality={100}
             className={styles.imageEl}
