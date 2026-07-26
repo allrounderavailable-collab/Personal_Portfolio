@@ -128,7 +128,7 @@ export default function ProjectsSection() {
           style={{ width: `${PROJECTS.length * 100}vw` }}
         >
           {PROJECTS.map((proj, i) => (
-            <div key={proj.id} className={styles.slide}>
+            <div key={proj.id} className={`${styles.slide} ${proj.id === 3 ? styles.proctorlySlide : ''}`}>
 
               <div
                 ref={el => { bgRefs.current[i] = el }}

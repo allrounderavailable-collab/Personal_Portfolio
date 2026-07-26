@@ -69,7 +69,7 @@ Replace the files in `public/assets/` with your own:
 | `about-me.mp4`         | Video Intro               | Full-screen intro video (ambient + main)|
 | `gaurav.png`           | Hero Section              | Your portrait photo                    |
 | `about.webp`           | About Section, OG Image   | Secondary photo used in about and SEO  |
-| `work-experience.webp` | Work Experience           | Background image for experience section|
+| `work-experience.png` | Work Experience           | Background image for experience section|
 | `footer.png`           | Footer Section            | Image that transitions into the footer |
 | `footer-mobile.webp`   | Footer Section (mobile)   | Static background image for mobile     |
 | `footer-video.mp4`     | Footer Section (desktop)  | Looping background video for footer    |
