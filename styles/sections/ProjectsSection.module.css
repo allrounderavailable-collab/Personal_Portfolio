@@ -292,3 +292,86 @@
   .slideContent { grid-template-columns: minmax(0, 45%) minmax(0, 1fr); }
   .title { font-size: 2.6rem; }
 }
+
+/* ── Proctorly Slide (Custom Green Theme) ──────── */
+.proctorlySlide {
+  background: transparent !important;
+}
+
+.proctorlySlide .slideBg {
+  background: transparent;
+}
+
+.proctorlySlide .slideImg {
+  object-fit: cover;
+  opacity: 1;
+  mix-blend-mode: normal;
+}
+
+.proctorlySlide .slideOverlayLeft {
+  background: linear-gradient(
+    108deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 42%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.proctorlySlide .slideOverlayBottom {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 40%,
+    transparent 65%
+  );
+}
+
+.proctorlySlide .slideVignette {
+  background: transparent;
+}
+
+/* Proctorly - Decorative curved shapes */
+.proctorlySlide::before,
+.proctorlySlide::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  display: none;
+}
+
+.proctorlySlide .slideLeft .title {
+  color: #1a9d5d;
+  text-shadow: none;
+}
+
+.proctorlySlide .slideLeft .subtitle {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.proctorlySlide .slideLeft .typeTag {
+  background: rgba(26, 157, 93, 0.1);
+  border-color: rgba(26, 157, 93, 0.3);
+  color: #1a9d5d;
+}
+
+.proctorlySlide .liveBtn {
+  background: #1a9d5d;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.proctorlySlide .liveBtn:hover {
+  background: #158a4a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(26, 157, 93, 0.3);
+}
+
+.proctorlySlide .slideRight .desc {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.proctorlySlide .tag {
+  background: rgba(26, 157, 93, 0.08);
+  border-color: rgba(26, 157, 93, 0.2);
+  color: #1a9d5d;
+}
