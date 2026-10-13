@@ -61,7 +61,7 @@
 /* ── Slide background ────────────────────────── */
 .slideBg {
   position: absolute;
-  inset: 0;
+  inset: -2px;
   z-index: 0;
 }
 

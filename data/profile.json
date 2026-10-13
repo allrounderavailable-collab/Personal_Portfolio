@@ -20,7 +20,7 @@
   "bio": "Results-driven Product Designer and UX Designer with 2+ years of experience crafting end-to-end digital products across e-commerce, workforce management, and EdTech. Skilled in user research, wireframing, prototyping, information architecture, and developer handoff.",
   "stats": [
     { "value": "2+",  "label": "Years Experience" },
-    { "value": "3+", "label": "Key Projects" },
+    { "value": "4+", "label": "Key Projects" },
     { "value": "1",   "label": "Company" }
   ],
   "skills": [
@@ -64,13 +64,13 @@
   "projects": [
     {
       "id": 1,
-      "title": "Aidiph",
-      "subtitle": "E-Commerce Platform",
+      "title": "AIDIPH Indent Ledger",
+      "subtitle": "Indent Ledger · Asset Request & Procurement",
       "type": "Product Design · Solo",
-      "link": "https://gauravchoudhary.framer.ai",
-      "image": "/assets/project-artgenio.png",
-      "tech": ["Figma", "Design Systems", "Admin Dashboards"],
-      "desc": "Full end-to-end e-commerce UX/UI and Super Admin system, including multi-step checkout, order lifecycle views, and a scalable component library."
+      "link": "https://www.figma.com/design/IwEo7B9qVogAfLFsomC97q/Indent-Ledger",
+      "image": "/assets/project-aidiph-indent-ledger.png",
+      "tech": ["Figma", "Design Systems", "Prototyping"],
+      "desc": "End-to-end asset request & procurement tool for four user roles — employee, IT, IT manager and admin — covering 166 screens and 47 prototype flows, with a design system built from the AIDIPH brand."
     },
     {
       "id": 2,
@@ -91,6 +91,16 @@
       "image": "/assets/work-experience.png",
       "tech": ["Figma", "Prototyping", "Accessible UI"],
       "desc": "Course discovery, purchase flow, and a distraction-free video player optimized for long-form learning sessions."
+    },
+    {
+      "id": 4,
+      "title": "AI Hackathon 2026",
+      "subtitle": "Student Hackathon Platform · Patna, Bihar",
+      "type": "Product Design · Solo",
+      "link": "https://www.figma.com/design/eVv5KDVSunGWQpRloYpklV/Kiba-Labs-Hackathon-%E2%80%93-Registration---Payment-Flow?node-id=2-17928&t=bRrKPrwDypli3R5d-1",
+      "image": "/assets/project-ai-hackathon-2026.png",
+      "tech": ["Figma", "Web Design", "Admin Panel"],
+      "desc": "End-to-end product design for a state-level offline hackathon — landing site, registration & payment flow, participant dashboard, admin panel and the full marketing kit."
     }
   ],
   "publications": [],
