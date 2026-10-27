@@ -37,6 +37,10 @@
     "Information Architecture",
     "User Flows",
     "Motion Design",
+    "Video Editing",
+    "Premiere Pro",
+    "After Effects",
+    "DaVinci Resolve",
     "Branding",
     "Usability Testing",
     "Photoshop"
@@ -175,6 +179,80 @@
       "image": "/assets/gd-packaging-1.jpg",
       "link": "https://www.behance.net/gauravchoudhary",
       "year": "2024"
+    }
+  ],
+  "videoEdits": [
+    {
+      "id": 1,
+      "title": "Brand Commercial & Motion Teaser",
+      "category": "Commercial",
+      "duration": "0:45",
+      "videoUrl": "/assets/footer-video.mp4",
+      "thumbnail": "/assets/ve-commercial.jpg",
+      "link": "https://www.youtube.com",
+      "tools": ["Premiere Pro", "After Effects"],
+      "year": "2026",
+      "desc": "High-energy commercial promo with dynamic kinetic typography, fast-paced cuts, sound design, and color grading."
+    },
+    {
+      "id": 2,
+      "title": "SaaS Product Launch & UI Motion",
+      "category": "Product Promo",
+      "duration": "1:15",
+      "videoUrl": "/assets/about-me.mp4",
+      "thumbnail": "/assets/ve-product-promo.jpg",
+      "link": "https://www.youtube.com",
+      "tools": ["After Effects", "Figma"],
+      "year": "2026",
+      "desc": "3D device mockups, sleek interface interactions, and seamless transitions showcasing core features of an AI platform."
+    },
+    {
+      "id": 3,
+      "title": "Viral Social Media Reels & Shorts",
+      "category": "Short-Form",
+      "duration": "0:30",
+      "videoUrl": "/assets/footer-video.mp4",
+      "thumbnail": "/assets/ve-reels.jpg",
+      "link": "https://www.instagram.com",
+      "tools": ["Premiere Pro", "CapCut Pro"],
+      "year": "2025",
+      "desc": "High-retention social media reels featuring punchy captions, sound FX, zoom cuts, and motion graphics designed for engagement."
+    },
+    {
+      "id": 4,
+      "title": "Cinematic Music Festival Aftermovie",
+      "category": "Cinematic",
+      "duration": "1:45",
+      "videoUrl": "/assets/about-me.mp4",
+      "thumbnail": "/assets/ve-aftermovie.jpg",
+      "link": "https://www.youtube.com",
+      "tools": ["DaVinci Resolve", "Premiere Pro"],
+      "year": "2025",
+      "desc": "Cinematic color grading with custom LUTs, seamless beat-matched transitions, and immersive atmospheric soundscapes."
+    },
+    {
+      "id": 5,
+      "title": "Tech Explainer & Documentary Style Edit",
+      "category": "Documentary",
+      "duration": "2:30",
+      "videoUrl": "/assets/footer-video.mp4",
+      "thumbnail": "/assets/ve-explainer.jpg",
+      "link": "https://www.youtube.com",
+      "tools": ["Premiere Pro", "After Effects"],
+      "year": "2025",
+      "desc": "Vox-style motion graphics, paper-tear textures, animated archival assets, and multi-track audio mixing."
+    },
+    {
+      "id": 6,
+      "title": "3D Logo Animation & Kinetic Stinger",
+      "category": "Motion Graphics",
+      "duration": "0:15",
+      "videoUrl": "/assets/about-me.mp4",
+      "thumbnail": "/assets/ve-motion.jpg",
+      "link": "https://www.youtube.com",
+      "tools": ["After Effects", "Cinema 4D"],
+      "year": "2024",
+      "desc": "Sleek glowing brand ident with particle effects, chromatic aberration, and custom whoosh & bass impact audio."
     }
   ],
   "socials": [
