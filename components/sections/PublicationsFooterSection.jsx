@@ -1,19 +1,20 @@
 
 'use client'
 
-import { useEffect, useRef, Fragment } from 'react'
+import { useEffect, useRef, useState, Fragment } from 'react'
 import Image from 'next/image'
 import * as THREE from 'three'
 import { gsap } from '@/lib/gsap'
 import {
-  FaGithub, FaLinkedinIn, FaMedium, FaInstagram, FaYoutube, FaEnvelope,
+  FaGithub, FaLinkedinIn, FaMedium, FaInstagram, FaYoutube, FaEnvelope, FaPlay, FaTimes,
 } from 'react-icons/fa'
 import { FiArrowUpRight, FiChevronDown } from 'react-icons/fi'
 import profile from '@/data/profile.json'
 import content from '@/data/content.json'
 import styles from '@/styles/sections/PublicationsFooterSection.module.css'
 
-const DESIGNS = profile.graphicDesigns
+const DESIGNS = profile.graphicDesigns || []
+const VIDEOS  = profile.videoEdits || []
 
 const SOCIAL_ICONS = {
   GitHub:    <FaGithub    size={13} />,
@@ -85,6 +86,9 @@ function handleViewProjects() {
 }
 
 export default function PublicationsFooterSection() {
+  const [activeTab, setActiveTab] = useState('graphics') // 'graphics' | 'video'
+  const [selectedVideo, setSelectedVideo] = useState(null)
+
   const wrapperRef = useRef(null)
   const stickyRef  = useRef(null)
 
@@ -110,6 +114,33 @@ export default function PublicationsFooterSection() {
   const rightRef        = useRef(null)
   const bigNameRef      = useRef(null)
   const bottomBarRef    = useRef(null)
+
+  // Close video modal on Escape
+  useEffect(() => {
+    function onKeyDown(e) {
+      if (e.key === 'Escape') setSelectedVideo(null)
+    }
+    if (selectedVideo) {
+      window.addEventListener('keydown', onKeyDown)
+    }
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [selectedVideo])
+
+  function handleTabChange(tab) {
+    if (tab === activeTab) return
+    setActiveTab(tab)
+    // Quick staggered reveal when switching tabs
+    setTimeout(() => {
+      itemRefs.current.forEach((el, i) => {
+        if (el) {
+          gsap.fromTo(el,
+            { opacity: 0, y: 24, scale: 0.94 },
+            { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: 'power3.out', delay: i * 0.05 }
+          )
+        }
+      })
+    }, 15)
+  }
 
   useEffect(() => {
     const wrapper       = wrapperRef.current
@@ -361,19 +392,51 @@ export default function PublicationsFooterSection() {
           <div ref={imageOverlayRef} className={styles.imageOverlay} />
         </div>
 
-        {/* ── Graphic Design gallery content (over image) ── */}
+        {/* ── Graphic Design & Video Editing showcase content (over image) ── */}
         <div ref={pubContentRef} className={styles.pubContent}>
-          <span className={styles.watermark} aria-hidden>DESIGN</span>
+          <span className={styles.watermark} aria-hidden>
+            {activeTab === 'graphics' ? 'DESIGN' : 'MOTION'}
+          </span>
 
           <div className={styles.pubHero}>
-            <p  ref={labelRef}   className={styles.label}>Visual &amp; Creative</p>
-            <h2 ref={headingRef} className={styles.heading}>Graphic Design</h2>
+            <div className={styles.pubHeroTop}>
+              <div>
+                <p ref={labelRef} className={styles.label}>
+                  {activeTab === 'graphics' ? 'Visual & Creative' : 'Motion & Post-Production'}
+                </p>
+                <h2 ref={headingRef} className={styles.heading}>
+                  {activeTab === 'graphics' ? 'Graphic Design' : 'Video Editing'}
+                </h2>
+              </div>
+
+              {/* Category Filter Tabs */}
+              <div className={styles.tabsContainer}>
+                <button
+                  type="button"
+                  className={`${styles.tabBtn} ${activeTab === 'graphics' ? styles.tabBtnActive : ''}`}
+                  onClick={() => handleTabChange('graphics')}
+                >
+                  <span className={styles.tabDot} />
+                  <span>Graphic Design</span>
+                  <span className={styles.tabCount}>{DESIGNS.length}</span>
+                </button>
+                <button
+                  type="button"
+                  className={`${styles.tabBtn} ${activeTab === 'video' ? styles.tabBtnActive : ''}`}
+                  onClick={() => handleTabChange('video')}
+                >
+                  <span className={styles.tabDot} />
+                  <span>Video Editing</span>
+                  <span className={styles.tabCount}>{VIDEOS.length}</span>
+                </button>
+              </div>
+            </div>
           </div>
 
           <div ref={dividerRef} className={styles.divider} />
 
           <div className={styles.gallery}>
-            {DESIGNS.map((item, i) => (
+            {activeTab === 'graphics' && DESIGNS.map((item, i) => (
               <a
                 key={item.id}
                 href={item.link}
@@ -402,8 +465,110 @@ export default function PublicationsFooterSection() {
                 </div>
               </a>
             ))}
+
+            {activeTab === 'video' && VIDEOS.map((item, i) => (
+              <div
+                key={item.id}
+                ref={el => { itemRefs.current[i] = el }}
+                className={`${styles.card} ${styles.videoCard}`}
+                onClick={() => setSelectedVideo(item)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') setSelectedVideo(item) }}
+              >
+                <div className={styles.cardImageWrap}>
+                  <Image
+                    src={item.thumbnail}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 767px) 45vw, (max-width: 1023px) 30vw, 22vw"
+                    className={styles.cardImage}
+                  />
+                  <span className={styles.durationBadge}>
+                    <FaPlay size={8} style={{ marginRight: '4px' }} /> {item.duration}
+                  </span>
+                  <div className={styles.videoPlayOverlay}>
+                    <div className={styles.playButtonCircle}>
+                      <FaPlay size={13} className={styles.playIcon} />
+                    </div>
+                    <span className={styles.watchLabel}>Play Video</span>
+                  </div>
+                </div>
+                <div className={styles.cardMeta}>
+                  <div className={styles.videoMetaTop}>
+                    <span className={styles.cardCategory}>{item.category}</span>
+                    <span className={styles.videoYear}>{item.year}</span>
+                  </div>
+                  <h3 className={styles.cardTitle}>{item.title}</h3>
+                  <div className={styles.toolsList}>
+                    {item.tools.map(t => (
+                      <span key={t} className={styles.toolPill}>{t}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
+
+        {/* ── Video Player Lightbox Modal ── */}
+        {selectedVideo && (
+          <div
+            className={styles.modalBackdrop}
+            onClick={() => setSelectedVideo(null)}
+          >
+            <div
+              className={styles.modalContent}
+              onClick={e => e.stopPropagation()}
+            >
+              <button
+                type="button"
+                className={styles.modalCloseBtn}
+                onClick={() => setSelectedVideo(null)}
+                aria-label="Close video player"
+              >
+                <FaTimes size={15} />
+              </button>
+
+              <div className={styles.modalVideoWrapper}>
+                <video
+                  src={selectedVideo.videoUrl}
+                  controls
+                  autoPlay
+                  playsInline
+                  className={styles.modalVideoPlayer}
+                />
+              </div>
+
+              <div className={styles.modalInfo}>
+                <div className={styles.modalInfoTop}>
+                  <div>
+                    <span className={styles.modalCategory}>
+                      {selectedVideo.category} • {selectedVideo.duration} • {selectedVideo.year}
+                    </span>
+                    <h3 className={styles.modalTitle}>{selectedVideo.title}</h3>
+                  </div>
+                  {selectedVideo.link && (
+                    <a
+                      href={selectedVideo.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.modalExtLink}
+                    >
+                      Watch External <FiArrowUpRight size={13} />
+                    </a>
+                  )}
+                </div>
+                <p className={styles.modalDesc}>{selectedVideo.desc}</p>
+                <div className={styles.modalTools}>
+                  {selectedVideo.tools.map(tool => (
+                    <span key={tool} className={styles.modalToolPill}>{tool}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* ── Image-only interstitial (step 2) ── */}
         <div ref={interstitialRef} className={styles.interstitial} aria-hidden>

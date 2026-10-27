@@ -18,7 +18,7 @@ const NAV_ITEMS = [
   { label: 'About',        idx: 2 },
   { label: 'Projects',     idx: 3 },
   { label: 'Experience',   idx: 5 },
-  { label: 'Publications', idx: 6 },
+  { label: 'Creative',     idx: 6 },
   { label: 'Contact',      idx: 7 },
 ]
 
