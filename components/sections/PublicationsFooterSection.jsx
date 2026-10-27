@@ -13,7 +13,7 @@ import profile from '@/data/profile.json'
 import content from '@/data/content.json'
 import styles from '@/styles/sections/PublicationsFooterSection.module.css'
 
-const PUBS = profile.publications
+const DESIGNS = profile.graphicDesigns
 
 const SOCIAL_ICONS = {
   GitHub:    <FaGithub    size={13} />,
@@ -199,7 +199,7 @@ export default function PublicationsFooterSection() {
       tick()
     }
 
-    // ── Publication entry animation ───────────────────────────
+    // ── Graphic design gallery entry animation ───────────────
     let pubAnimDone = false
 
     function resetPubAnim() {
@@ -208,7 +208,7 @@ export default function PublicationsFooterSection() {
       gsap.set(headingRef.current, { opacity: 0, y: -30, rotateX: 35, transformPerspective: 700, transformOrigin: '50% 0%' })
       gsap.set(dividerRef.current, { scaleX: 0, transformOrigin: 'left center' })
       itemRefs.current.forEach(el => {
-        if (el) gsap.set(el, { opacity: 0, y: 28, rotateX: 18, transformPerspective: 900, transformOrigin: '50% 0%' })
+        if (el) gsap.set(el, { opacity: 0, y: 40, scale: 0.92 })
       })
     }
 
@@ -219,7 +219,7 @@ export default function PublicationsFooterSection() {
       gsap.to(headingRef.current, { opacity: 1, y: 0, rotateX: 0, duration: 0.75, ease: 'expo.out', delay: 0.08 })
       gsap.to(dividerRef.current, { scaleX: 1, duration: 0.7, ease: 'power2.inOut', delay: 0.25 })
       itemRefs.current.forEach((el, i) => {
-        if (el) gsap.to(el, { opacity: 1, y: 0, rotateX: 0, duration: 0.6, ease: 'power3.out', delay: 0.32 + i * 0.1 })
+        if (el) gsap.to(el, { opacity: 1, y: 0, scale: 1, duration: 0.65, ease: 'power3.out', delay: 0.28 + i * 0.07 })
       })
     }
 
@@ -361,40 +361,44 @@ export default function PublicationsFooterSection() {
           <div ref={imageOverlayRef} className={styles.imageOverlay} />
         </div>
 
-        {/* ── Publication content (right of image) ── */}
+        {/* ── Graphic Design gallery content (over image) ── */}
         <div ref={pubContentRef} className={styles.pubContent}>
-          <span className={styles.watermark} aria-hidden>WRITING</span>
+          <span className={styles.watermark} aria-hidden>DESIGN</span>
 
           <div className={styles.pubHero}>
-            <p  ref={labelRef}   className={styles.label}>Research &amp; Writing</p>
-            <h2 ref={headingRef} className={styles.heading}>Publications</h2>
+            <p  ref={labelRef}   className={styles.label}>Visual &amp; Creative</p>
+            <h2 ref={headingRef} className={styles.heading}>Graphic Design</h2>
           </div>
 
           <div ref={dividerRef} className={styles.divider} />
 
-          <div className={styles.list}>
-            {PUBS.map((pub, i) => (
+          <div className={styles.gallery}>
+            {DESIGNS.map((item, i) => (
               <a
-                key={pub.id}
-                href={pub.link}
+                key={item.id}
+                href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 ref={el => { itemRefs.current[i] = el }}
-                className={styles.item}
+                className={styles.card}
               >
-                <div className={styles.num}>0{i + 1}.</div>
-                <div className={styles.itemBody}>
-                  <div className={styles.itemTop}>
-                    <h3 className={styles.title}>{pub.title}</h3>
-                    <span className={styles.platform}>{pub.platform}</span>
+                <div className={styles.cardImageWrap}>
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 767px) 45vw, (max-width: 1023px) 30vw, 22vw"
+                    className={styles.cardImage}
+                  />
+                  <div className={styles.cardOverlay}>
+                    <span className={styles.cardView}>
+                      View <FiArrowUpRight size={12} />
+                    </span>
                   </div>
-                  <p className={styles.desc}>{pub.desc}</p>
                 </div>
-                <div className={styles.itemRight}>
-                  <span className={styles.year}>{pub.year}</span>
-                  <span className={styles.readBtn}>
-                    Read <FiArrowUpRight size={11} />
-                  </span>
+                <div className={styles.cardMeta}>
+                  <span className={styles.cardCategory}>{item.category}</span>
+                  <h3 className={styles.cardTitle}>{item.title}</h3>
                 </div>
               </a>
             ))}
