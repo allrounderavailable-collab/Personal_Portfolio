@@ -103,7 +103,80 @@
       "desc": "End-to-end product design for a state-level offline hackathon — landing site, registration & payment flow, participant dashboard, admin panel and the full marketing kit."
     }
   ],
-  "publications": [],
+  "graphicDesigns": [
+    {
+      "id": 1,
+      "title": "Design Studio — Social Campaign",
+      "category": "Social Media",
+      "image": "/assets/gd-social-media-1.jpg",
+      "link": "https://www.behance.net/gauravchoudhary",
+      "year": "2026"
+    },
+    {
+      "id": 2,
+      "title": "LUXE — Brand Identity",
+      "category": "Branding",
+      "image": "/assets/gd-branding-1.jpg",
+      "link": "https://www.behance.net/gauravchoudhary",
+      "year": "2026"
+    },
+    {
+      "id": 3,
+      "title": "Neon Nights — Event Poster",
+      "category": "Poster Design",
+      "image": "/assets/gd-poster-1.jpg",
+      "link": "https://www.behance.net/gauravchoudhary",
+      "year": "2026"
+    },
+    {
+      "id": 4,
+      "title": "Mindful Living — Carousel Set",
+      "category": "Social Media",
+      "image": "/assets/gd-social-media-2.jpg",
+      "link": "https://www.behance.net/gauravchoudhary",
+      "year": "2025"
+    },
+    {
+      "id": 5,
+      "title": "FitTrack — App UI Concept",
+      "category": "UI Design",
+      "image": "/assets/gd-ui-mockup-1.jpg",
+      "link": "https://www.behance.net/gauravchoudhary",
+      "year": "2025"
+    },
+    {
+      "id": 6,
+      "title": "FUTURE — Typographic Poster",
+      "category": "Poster Design",
+      "image": "/assets/gd-poster-2.jpg",
+      "link": "https://www.behance.net/gauravchoudhary",
+      "year": "2025"
+    },
+    {
+      "id": 7,
+      "title": "Brew Co. — Brand Identity",
+      "category": "Branding",
+      "image": "/assets/gd-branding-2.jpg",
+      "link": "https://www.behance.net/gauravchoudhary",
+      "year": "2025"
+    },
+    {
+      "id": 8,
+      "title": "Story Highlights — Icon Set",
+      "category": "Social Media",
+      "image": "/assets/gd-social-media-3.jpg",
+      "link": "https://www.behance.net/gauravchoudhary",
+      "year": "2024"
+    },
+    {
+      "id": 9,
+      "title": "AURA — Packaging Design",
+      "category": "Packaging",
+      "image": "/assets/gd-packaging-1.jpg",
+      "link": "https://www.behance.net/gauravchoudhary",
+      "year": "2024"
+    }
+  ],
   "socials": [
     { "label": "LinkedIn", "href": "https://gauravchoudhary.framer.ai" }
   ]
