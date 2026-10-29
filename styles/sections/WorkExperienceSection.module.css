@@ -300,10 +300,11 @@
 
   .card { padding-top: 0; }
 
-  .company  { font-size: 1.1rem; }
-  .bullets  { max-height: none; overflow: visible; }
-  .bullet   { font-size: 0.88rem; }
-  .stack    { display: none; }
+  .company  { font-size: 1.05rem; }
+  .bullets  { max-height: none; overflow: visible; padding-left: 0.65rem; gap: 0.35rem; }
+  .bullet   { font-size: 0.78rem; line-height: 1.45; }
+  .stack    { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 0.4rem; }
+  .tag      { font-size: 0.58rem; padding: 0.12rem 0.38rem; }
 }
 
 /* ── Tablet (768–1023px) ────────────────────────── */

@@ -90,7 +90,15 @@ export default function ScreenLoader({ onDismiss }) {
   }
 
   return (
-    <div ref={overlayRef} className={styles.overlay}>
+    <div
+      ref={overlayRef}
+      className={styles.overlay}
+      onClick={handleStart}
+      role="button"
+      tabIndex={0}
+      aria-label="Tap to enter portfolio"
+      onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') handleStart() }}
+    >
       <div className={styles.liquidBg} aria-hidden />
 
       <p className={styles.monogram}>
@@ -99,10 +107,12 @@ export default function ScreenLoader({ onDismiss }) {
 
       <button
         className={styles.startBtn}
-        onClick={handleStart}
+        onClick={e => { e.stopPropagation(); handleStart() }}
       >
         Start
       </button>
+
+      <p className={styles.tapPrompt}>Tap anywhere to enter</p>
     </div>
   )
 }

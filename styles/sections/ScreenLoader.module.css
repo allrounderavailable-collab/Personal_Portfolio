@@ -144,6 +144,23 @@
   transform: scaleX(1);
 }
 
+.tapPrompt {
+  position: relative;
+  z-index: 2;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  margin: 0;
+  animation: pulsePrompt 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulsePrompt {
+  0%, 100% { opacity: 0.3; }
+  50%      { opacity: 0.75; }
+}
+
 /* Split Layers */
 
 .splitTop,

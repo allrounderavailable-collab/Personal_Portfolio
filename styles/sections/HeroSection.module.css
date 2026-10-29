@@ -324,35 +324,50 @@
 
   .content {
     left: 1.25rem;
-    top: 5rem;
-    gap: 0.5rem;
-    max-width: 58vw;
-    --hero-name-size: clamp(2rem, 8.5vw, 3.5rem);
+    right: 1.25rem;
+    top: 4.2rem;
+    gap: 0.45rem;
+    max-width: none;
+    z-index: 5;
+    --hero-name-size: clamp(2.4rem, 10vw, 3.8rem);
   }
 
-  .name { white-space: normal; }
+  .nameBlock {
+    margin-bottom: 0.2rem;
+  }
+
+  .name {
+    white-space: normal;
+    text-shadow: 0 2px 12px rgba(255, 255, 255, 0.4);
+  }
 
   .photo {
-    width: 72%;
-    height: 72svh;
+    width: 75%;
+    height: 68svh;
     top: auto;
     bottom: 0;
-    right: 0;
+    right: -5%;
+    opacity: 0.45;
+    z-index: 1;
+    pointer-events: none;
+    mask-image: linear-gradient(to left, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 95%);
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 95%);
   }
 
-  .stats       { gap: 0.35rem; flex-wrap: wrap; }
-  .statCard    { padding: 0.4rem 0.7rem; min-width: 4.5rem; }
-  .statValue   { font-size: 0.82rem; }
+  .stats       { gap: 0.5rem; flex-wrap: nowrap; margin-top: 0.3rem; }
+  .statCard    { padding: 0.45rem 0.65rem; flex: 1; min-width: 0; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); }
+  .statValue   { font-size: 0.85rem; }
   .statLabel   { font-size: 0.52rem; }
-  .pills       { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin-top: 0.4rem; }
-  .pill        { font-size: 0.62rem; padding: 0.32rem 0.5rem; text-align: center; white-space: normal; flex: unset; }
+  .pills       { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.35rem; }
+  .pill        { font-size: 0.62rem; padding: 0.28rem 0.55rem; white-space: nowrap; background: rgba(255, 255, 255, 0.82); }
   .pillDot     { display: none; }
-  .viewBtn     { font-size: 0.78rem; padding: 0.55rem 1.2rem; }
+  .viewBtn     { font-size: 0.76rem; padding: 0.5rem 1.1rem; width: fit-content; margin-top: 0.2rem; }
 }
 
 @media (max-width: 374px) {
-  .photo   { width: 75%; height: 65svh; }
-  .content { top: 4.5rem; max-width: 60vw; }
+  .photo   { width: 80%; height: 60svh; }
+  .content { top: 3.8rem; gap: 0.35rem; }
+  .stats   { flex-wrap: wrap; }
 }
 
 /* ─── Responsive: Tablet 768–1023px ─────────────────────── */
