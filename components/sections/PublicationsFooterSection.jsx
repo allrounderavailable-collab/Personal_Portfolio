@@ -558,11 +558,19 @@ export default function PublicationsFooterSection() {
               </button>
 
               <div className={styles.modalImageWrapper}>
-                <img
-                  src={selectedImage.image}
-                  alt={selectedImage.title}
-                  className={styles.modalImagePreview}
-                />
+                <a
+                  href={selectedImage.image}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.modalImagePreviewLink}
+                  title="Click to open full file in new tab"
+                >
+                  <img
+                    src={selectedImage.image}
+                    alt={selectedImage.title}
+                    className={styles.modalImagePreview}
+                  />
+                </a>
               </div>
 
               <div className={styles.modalInfo}>
@@ -573,16 +581,28 @@ export default function PublicationsFooterSection() {
                     </span>
                     <h3 className={styles.modalTitle}>{selectedImage.title}</h3>
                   </div>
-                  {selectedImage.link && (
+                  <div className={styles.modalActions}>
                     <a
-                      href={selectedImage.link}
+                      href={selectedImage.image}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.modalExtLink}
+                      title="Open full resolution design file in new tab"
                     >
-                      Visit Project <FiArrowUpRight size={13} />
+                      Open Full File <FiArrowUpRight size={13} />
                     </a>
-                  )}
+                    {selectedImage.link && selectedImage.link !== selectedImage.image && (
+                      <a
+                        href={selectedImage.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.modalSecondaryLink}
+                        title="Visit project link"
+                      >
+                        Project Link <FiArrowUpRight size={13} />
+                      </a>
+                    )}
+                  </div>
                 </div>
                 {selectedImage.desc && (
                   <p className={styles.modalDesc}>{selectedImage.desc}</p>
