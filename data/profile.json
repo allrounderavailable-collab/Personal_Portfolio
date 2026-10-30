@@ -161,6 +161,51 @@
       "link": "https://www.kibalabs.in",
       "year": "2026",
       "desc": "Corporate collateral presenting KIBA Labs' full-lifecycle tech solutions, data analytics, and digital transformation architecture."
+    },
+    {
+      "id": 7,
+      "title": "KIBA Labs — How AI Chatbots Will Shape the Future",
+      "category": "Social Carousel",
+      "image": "/assets/gd-kiba-ai-chatbots.jpg",
+      "link": "https://www.kibalabs.in",
+      "year": "2026",
+      "desc": "Multi-slide educational carousel exploring AI chatbot evolution, cross-industry automation, 24/7 customer experience, and business scalability."
+    },
+    {
+      "id": 8,
+      "title": "KIBA Labs — Why Businesses Choose KIBA Labs",
+      "category": "Brand Carousel",
+      "image": "/assets/gd-kiba-why-choose.jpg",
+      "link": "https://www.kibalabs.in",
+      "year": "2026",
+      "desc": "High-impact brand carousel breaking down KIBA Labs' IT consulting, digital transformation, SAP enterprise practice, and end-to-end data/AI offerings."
+    },
+    {
+      "id": 9,
+      "title": "KIBA Labs — Prompt Smart. Work Smart. Win Big in the AI Era",
+      "category": "Thought Leadership",
+      "image": "/assets/gd-kiba-prompt-smart.jpg",
+      "link": "https://www.kibalabs.in",
+      "year": "2026",
+      "desc": "Engaging carousel guide on prompt engineering best practices, human-AI synergy, and strategic workflows for modern professionals."
+    },
+    {
+      "id": 10,
+      "title": "KIBA Labs — AI Myths vs Reality",
+      "category": "Educational Carousel",
+      "image": "/assets/gd-kiba-ai-myths.jpg",
+      "link": "https://www.kibalabs.in",
+      "year": "2026",
+      "desc": "Data-backed carousel debunking prevalent AI misconceptions around job replacement, accuracy, technical barriers, and comprehension."
+    },
+    {
+      "id": 11,
+      "title": "KIBA Labs — Why Finding SAP Talent Is So Challenging",
+      "category": "Staffing Solutions",
+      "image": "/assets/gd-kiba-sap-talent.jpg",
+      "link": "https://www.kibalabs.in",
+      "year": "2026",
+      "desc": "B2B carousel detailing global SAP hiring bottlenecks and how KIBA Labs provides pre-vetted, deployment-ready SAP BTP and CAP talent."
     }
   ],
   "videoEdits": [
