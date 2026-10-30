@@ -88,6 +88,7 @@ function handleViewProjects() {
 export default function PublicationsFooterSection() {
   const [activeTab, setActiveTab] = useState('graphics') // 'graphics' | 'video'
   const [selectedVideo, setSelectedVideo] = useState(null)
+  const [selectedImage, setSelectedImage] = useState(null)
 
   const wrapperRef = useRef(null)
   const stickyRef  = useRef(null)
@@ -115,16 +116,19 @@ export default function PublicationsFooterSection() {
   const bigNameRef      = useRef(null)
   const bottomBarRef    = useRef(null)
 
-  // Close video modal on Escape
+  // Close modals on Escape
   useEffect(() => {
     function onKeyDown(e) {
-      if (e.key === 'Escape') setSelectedVideo(null)
+      if (e.key === 'Escape') {
+        setSelectedVideo(null)
+        setSelectedImage(null)
+      }
     }
-    if (selectedVideo) {
+    if (selectedVideo || selectedImage) {
       window.addEventListener('keydown', onKeyDown)
     }
     return () => window.removeEventListener('keydown', onKeyDown)
-  }, [selectedVideo])
+  }, [selectedVideo, selectedImage])
 
   function handleTabChange(tab) {
     if (tab === activeTab) return
@@ -437,13 +441,14 @@ export default function PublicationsFooterSection() {
 
           <div className={styles.gallery}>
             {activeTab === 'graphics' && DESIGNS.map((item, i) => (
-              <a
+              <div
                 key={item.id}
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
                 ref={el => { itemRefs.current[i] = el }}
                 className={styles.card}
+                onClick={() => setSelectedImage(item)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') setSelectedImage(item) }}
               >
                 <div className={styles.cardImageWrap}>
                   <Image
@@ -455,7 +460,7 @@ export default function PublicationsFooterSection() {
                   />
                   <div className={styles.cardOverlay}>
                     <span className={styles.cardView}>
-                      View <FiArrowUpRight size={12} />
+                      View Detail <FiArrowUpRight size={12} />
                     </span>
                   </div>
                 </div>
@@ -463,7 +468,7 @@ export default function PublicationsFooterSection() {
                   <span className={styles.cardCategory}>{item.category}</span>
                   <h3 className={styles.cardTitle}>{item.title}</h3>
                 </div>
-              </a>
+              </div>
             ))}
 
             {activeTab === 'video' && VIDEOS.map((item, i) => (
@@ -472,18 +477,40 @@ export default function PublicationsFooterSection() {
                 ref={el => { itemRefs.current[i] = el }}
                 className={`${styles.card} ${styles.videoCard}`}
                 onClick={() => setSelectedVideo(item)}
+                onMouseEnter={e => {
+                  const vid = e.currentTarget.querySelector('video')
+                  if (vid) vid.play().catch(() => {})
+                }}
+                onMouseLeave={e => {
+                  const vid = e.currentTarget.querySelector('video')
+                  if (vid) {
+                    vid.pause()
+                    vid.currentTime = 0
+                  }
+                }}
                 role="button"
                 tabIndex={0}
                 onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') setSelectedVideo(item) }}
               >
                 <div className={styles.cardImageWrap}>
-                  <Image
-                    src={item.thumbnail}
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 767px) 45vw, (max-width: 1023px) 30vw, 22vw"
-                    className={styles.cardImage}
-                  />
+                  {item.thumbnail ? (
+                    <Image
+                      src={item.thumbnail}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 767px) 45vw, (max-width: 1023px) 30vw, 22vw"
+                      className={styles.cardImage}
+                    />
+                  ) : (
+                    <video
+                      src={`${item.videoUrl}#t=0.001`}
+                      preload="metadata"
+                      muted
+                      loop
+                      playsInline
+                      className={styles.cardVideoPoster}
+                    />
+                  )}
                   <span className={styles.durationBadge}>
                     <FaPlay size={8} style={{ marginRight: '4px' }} /> {item.duration}
                   </span>
@@ -510,6 +537,60 @@ export default function PublicationsFooterSection() {
             ))}
           </div>
         </div>
+
+        {/* ── Image Lightbox Modal ── */}
+        {selectedImage && (
+          <div
+            className={styles.modalBackdrop}
+            onClick={() => setSelectedImage(null)}
+          >
+            <div
+              className={styles.modalContent}
+              onClick={e => e.stopPropagation()}
+            >
+              <button
+                type="button"
+                className={styles.modalCloseBtn}
+                onClick={() => setSelectedImage(null)}
+                aria-label="Close image preview"
+              >
+                <FaTimes size={15} />
+              </button>
+
+              <div className={styles.modalImageWrapper}>
+                <img
+                  src={selectedImage.image}
+                  alt={selectedImage.title}
+                  className={styles.modalImagePreview}
+                />
+              </div>
+
+              <div className={styles.modalInfo}>
+                <div className={styles.modalInfoTop}>
+                  <div>
+                    <span className={styles.modalCategory}>
+                      {selectedImage.category} • {selectedImage.year}
+                    </span>
+                    <h3 className={styles.modalTitle}>{selectedImage.title}</h3>
+                  </div>
+                  {selectedImage.link && (
+                    <a
+                      href={selectedImage.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.modalExtLink}
+                    >
+                      Visit Project <FiArrowUpRight size={13} />
+                    </a>
+                  )}
+                </div>
+                {selectedImage.desc && (
+                  <p className={styles.modalDesc}>{selectedImage.desc}</p>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* ── Video Player Lightbox Modal ── */}
         {selectedVideo && (

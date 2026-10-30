@@ -48,3 +48,11 @@ next-env.d.ts
 
 # internal dev planning docs
 docs/superpowers
+
+# Large files (>100MB - GitHub hard limit protection)
+*Bihar AI Tech Summit*
+*bihar-ai-tech-summit*
+*.zip
+*.tar.gz
+*.iso
+*.dmg
