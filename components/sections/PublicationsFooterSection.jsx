@@ -369,7 +369,7 @@ export default function PublicationsFooterSection() {
         {/* ── Mobile background image (footer phase - mobile only) ── */}
         <div className={styles.mobileFooterBg}>
           <Image
-            src="/assets/footer-mobile.webp"
+            src="/assets/footer-mobile.png"
             alt=""
             fill
             quality={100}
