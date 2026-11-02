@@ -116,7 +116,7 @@ export default function PublicationsFooterSection() {
   const bigNameRef      = useRef(null)
   const bottomBarRef    = useRef(null)
 
-  // Close modals on Escape
+  // Close modals on Escape and lock background scroll
   useEffect(() => {
     function onKeyDown(e) {
       if (e.key === 'Escape') {
@@ -126,8 +126,14 @@ export default function PublicationsFooterSection() {
     }
     if (selectedVideo || selectedImage) {
       window.addEventListener('keydown', onKeyDown)
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
     }
-    return () => window.removeEventListener('keydown', onKeyDown)
+    return () => {
+      window.removeEventListener('keydown', onKeyDown)
+      document.body.style.overflow = ''
+    }
   }, [selectedVideo, selectedImage])
 
   function handleTabChange(tab) {
@@ -543,6 +549,9 @@ export default function PublicationsFooterSection() {
           <div
             className={styles.modalBackdrop}
             onClick={() => setSelectedImage(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="image-modal-title"
           >
             <div
               className={styles.modalContent}
@@ -579,7 +588,7 @@ export default function PublicationsFooterSection() {
                     <span className={styles.modalCategory}>
                       {selectedImage.category} • {selectedImage.year}
                     </span>
-                    <h3 className={styles.modalTitle}>{selectedImage.title}</h3>
+                    <h3 id="image-modal-title" className={styles.modalTitle}>{selectedImage.title}</h3>
                   </div>
                   <div className={styles.modalActions}>
                     <a
@@ -606,6 +615,9 @@ export default function PublicationsFooterSection() {
           <div
             className={styles.modalBackdrop}
             onClick={() => setSelectedVideo(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="video-modal-title"
           >
             <div
               className={styles.modalContent}
@@ -636,7 +648,7 @@ export default function PublicationsFooterSection() {
                     <span className={styles.modalCategory}>
                       {selectedVideo.category} • {selectedVideo.duration} • {selectedVideo.year}
                     </span>
-                    <h3 className={styles.modalTitle}>{selectedVideo.title}</h3>
+                    <h3 id="video-modal-title" className={styles.modalTitle}>{selectedVideo.title}</h3>
                   </div>
                   <a
                     href={selectedVideo.videoUrl}

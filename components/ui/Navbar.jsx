@@ -52,6 +52,23 @@ export default function Navbar() {
     return () => clearInterval(id)
   }, [])
 
+  // Close mobile menu on Escape key and lock body scroll while open
+  useEffect(() => {
+    function onKeyDown(e) {
+      if (e.key === 'Escape') setMenuOpen(false)
+    }
+    if (menuOpen) {
+      window.addEventListener('keydown', onKeyDown)
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      window.removeEventListener('keydown', onKeyDown)
+      document.body.style.overflow = ''
+    }
+  }, [menuOpen])
+
   // Auto-hide on scroll-down, reveal on scroll-up or scroll-stop
   useEffect(() => {
     const scroller = document.querySelector('main') ?? window
@@ -130,14 +147,22 @@ export default function Navbar() {
         <button
           className={styles.hamburger}
           onClick={() => setMenuOpen(o => !o)}
-          aria-label="Toggle menu"
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation-menu"
         >
           {menuOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
         </button>
       </header>
 
       {menuOpen && (
-        <div className={styles.mobileMenu}>
+        <div
+          id="mobile-navigation-menu"
+          className={styles.mobileMenu}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation Menu"
+        >
           {NAV_ITEMS.map(({ label, idx }) => (
             <button
               key={label}
