@@ -587,21 +587,10 @@ export default function PublicationsFooterSection() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.modalExtLink}
-                      title="Open full resolution design file in new tab"
+                      title="Open file to view"
                     >
-                      Open Full File <FiArrowUpRight size={13} />
+                      View File <FiArrowUpRight size={13} />
                     </a>
-                    {selectedImage.link && selectedImage.link !== selectedImage.image && (
-                      <a
-                        href={selectedImage.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.modalSecondaryLink}
-                        title="Visit project link"
-                      >
-                        Project Link <FiArrowUpRight size={13} />
-                      </a>
-                    )}
                   </div>
                 </div>
                 {selectedImage.desc && (
@@ -649,16 +638,15 @@ export default function PublicationsFooterSection() {
                     </span>
                     <h3 className={styles.modalTitle}>{selectedVideo.title}</h3>
                   </div>
-                  {selectedVideo.link && (
-                    <a
-                      href={selectedVideo.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.modalExtLink}
-                    >
-                      Watch External <FiArrowUpRight size={13} />
-                    </a>
-                  )}
+                  <a
+                    href={selectedVideo.videoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.modalExtLink}
+                    title="Open video file to view"
+                  >
+                    View File <FiArrowUpRight size={13} />
+                  </a>
                 </div>
                 <p className={styles.modalDesc}>{selectedVideo.desc}</p>
                 <div className={styles.modalTools}>
